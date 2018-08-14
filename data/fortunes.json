@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "message": "Love is around the corner.",
+        "lucky_number": 7,
+        "spirit_animal": "panther"
+    },
+    {
+        "id": 2,
+        "message": "A great treasure will be found",
+        "lucky_number": 42,
+        "spirit_animal": "bear"
+    },
+    {
+        "id": 3,
+        "message": "Your efforts will be rewarded",
+        "lucky_number": 12,
+        "spirit_animal": "eagle"
+    }
+]
