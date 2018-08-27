@@ -1,3 +1,4 @@
+const fs = require('fs')
 const express = require('express')
 const bodyParser = require('body-parser')
 const fortunes = require('./data/fortunes')
@@ -18,8 +19,19 @@ res.json(fortunes.find(f => f.id == req.params.id))
 })
 
 app.post('/fortunes', (req, res) => {
-    console.log(req.body);
-    
+    console.log(req.body)
+    const { message, lucky_number, spirit_animal } = req.body
+    const fortune_ids = fortunes.map(f => f.id)
+    const fortune = {
+         id: (fortune_ids.length > 0 ? Math.max(...fortune_ids) : 0) + 1,
+         message,
+         lucky_number,
+         spirit_animal}
+
+    const new_fortunes = fortunes.concat(fortune)
+    fs.writeFile('./data/fortunes.json', JSON.stringify(new_fortunes), err  => console.log(err))
+    res.json(new_fortunes)
+
 })
 
 module.exports = app
